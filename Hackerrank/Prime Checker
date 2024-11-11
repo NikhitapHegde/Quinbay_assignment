@@ -1,0 +1,53 @@
+//Java 15
+
+import java.io.*;
+import java.util.*;
+
+class Prime {
+    
+    public void checkPrime(int... numbers) {
+        StringBuilder result = new StringBuilder();
+        for (int number : numbers) {
+            if (isPrime(number)) {
+                result.append(number).append(" ");
+            }
+        }
+        
+        
+        if (result.length() > 0) {
+            System.out.println(result.toString().trim());
+        } else {
+            System.out.println();
+        }
+    }
+    
+    
+    private boolean isPrime(int num) {
+        if (num <= 1) return false;  
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Prime primeObj = new Prime();
+        
+        
+        int[] inputNumbers = new int[5];
+        for (int i = 0; i < 5; i++) {
+            inputNumbers[i] = sc.nextInt();
+        }
+        
+        
+        primeObj.checkPrime(inputNumbers[0]);          
+        primeObj.checkPrime(inputNumbers[0], inputNumbers[1]);
+        primeObj.checkPrime(inputNumbers[0], inputNumbers[1], inputNumbers[2]);  
+        primeObj.checkPrime(inputNumbers);   
+    }
+}
