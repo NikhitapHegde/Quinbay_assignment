@@ -1,0 +1,36 @@
+//Java 7
+
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        
+        scan.close();
+        
+        String regex="[a-zA-Z]+";
+        Pattern pattern=Pattern.compile(regex);
+        Matcher matcher=pattern.matcher(s);
+        
+        ArrayList<String> tokens = new ArrayList<>();
+        
+
+        while (matcher.find()) {
+            tokens.add(matcher.group());
+        }
+        
+        
+        System.out.println(tokens.size());
+        
+        
+        for (String token : tokens) {
+            System.out.println(token);
+        }
+    
+    }
+}
+
