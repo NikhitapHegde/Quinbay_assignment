@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt(); 
+        
+        
+        BitSet bitSet1 = new BitSet(n);
+        BitSet bitSet2 = new BitSet(n);
+        
+        
+        sc.nextLine(); 
+        for (int i = 0; i < m; i++) {
+            String operation = sc.nextLine();
+            String[] parts = operation.split(" ");
+            
+            switch (parts[0]) {
+                case "AND":
+                    
+                    if (parts[1].equals("1") && parts[2].equals("2")) {
+                        bitSet1.and(bitSet2);
+                    } else if (parts[1].equals("2") && parts[2].equals("1")) {
+                        bitSet2.and(bitSet1);
+                    }
+                    break;
+                case "OR":
+                    
+                    if (parts[1].equals("1") && parts[2].equals("2")) {
+                        bitSet1.or(bitSet2);
+                    } else if (parts[1].equals("2") && parts[2].equals("1")) {
+                        bitSet2.or(bitSet1);
+                    }
+                    break;
+                case "XOR":
+                   
+                    if (parts[1].equals("1") && parts[2].equals("2")) {
+                        bitSet1.xor(bitSet2);
+                    } else if (parts[1].equals("2") && parts[2].equals("1")) {
+                        bitSet2.xor(bitSet1);
+                    }
+                    break;
+                case "FLIP":
+                    
+                    int index = Integer.parseInt(parts[2]);
+                    if (parts[1].equals("1")) {
+                        bitSet1.flip(index);
+                    } else {
+                        bitSet2.flip(index);
+                    }
+                    break;
+                case "SET":
+                    
+                    index = Integer.parseInt(parts[2]);
+                    if (parts[1].equals("1")) {
+                        bitSet1.set(index);
+                    } else {
+                        bitSet2.set(index);
+                    }
+                    break;
+            }
+            
+           
+            System.out.println(bitSet1.cardinality() + " " + bitSet2.cardinality());
+        }
+        
+        sc.close();
+    }
+}
