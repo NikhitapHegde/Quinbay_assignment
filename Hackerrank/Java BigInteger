@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        try
+        {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+         String firstNum = bufferedReader.readLine();
+            String secondNum = bufferedReader.readLine();
+            
+            
+            BigInteger a = new BigInteger(firstNum);
+            BigInteger b = new BigInteger(secondNum);
+
+            
+            BigInteger sum = a.add(b);
+            BigInteger product = a.multiply(b);
+
+            
+            System.out.println(sum);
+            System.out.println(product);
+            
+             bufferedReader.close();
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+        }
+
+    }
+}
