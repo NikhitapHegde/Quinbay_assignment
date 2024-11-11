@@ -1,0 +1,29 @@
+//Java 7
+
+class Result {
+
+    /*
+     * Complete the 'findDay' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. INTEGER month
+     *  2. INTEGER day
+     *  3. INTEGER year
+     */
+
+    public static String findDay(int month, int day, int year) {
+     if (month<3){
+         month+=12;
+         year--;
+     }
+     int K=year%100;
+     int J=year/100;
+     int h=(day+(13*(month+1))/5+K+K/4+J/4+5*J)%7;
+     
+     String[] daysOfWeek={"SATURDAY", "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"};
+     return daysOfWeek[h];
+    }
+
+}
+
