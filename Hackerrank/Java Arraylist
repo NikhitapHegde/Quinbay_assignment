@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        
+        int n=sc.nextInt();
+        sc.nextLine();
+        
+        ArrayList<ArrayList<Integer>> listOfLines=new ArrayList<>();
+        
+        for (int i=0;i<n;i++){
+            String[] line=sc.nextLine().split(" ");
+            int numElements=Integer.parseInt(line[0]);
+            
+            ArrayList<Integer> currentLine=new ArrayList<>();
+            for (int j=1;j<=numElements;j++){
+                currentLine.add(Integer.parseInt(line[j]));
+            }
+            listOfLines.add(currentLine);
+        }
+        int q=sc.nextInt();
+        
+        for (int i = 0; i < q; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            
+            x -= 1;
+            y -= 1;
+            
+            if (x >= 0 && x < n && y >= 0 && y < listOfLines.get(x).size()) {
+                System.out.println(listOfLines.get(x).get(y));
+            } else {
+                System.out.println("ERROR!");
+            }
+        }
+        
+        sc.close();
+    }
+}
