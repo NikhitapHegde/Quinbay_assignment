@@ -1,0 +1,8 @@
+function timesFive(param){
+   const val=param*5;
+   return val;
+}
+
+timesFive(5);
+timesFive(2);
+timesFive(0);
