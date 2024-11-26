@@ -1,0 +1,5 @@
+function splitify(str) {
+  return str.split(/[^a-zA-Z0-9]+/);
+}
+
+splitify("Hello World,I-am code");
