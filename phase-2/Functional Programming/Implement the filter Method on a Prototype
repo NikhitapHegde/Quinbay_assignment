@@ -1,0 +1,9 @@
+Array.prototype.myFilter = function(callback) {
+  const newArray = [];
+  this.forEach((element,index,array) => {
+    if (callback(element,index,array)){
+      newArray.push(element);
+    }
+  });
+  return newArray;
+};
