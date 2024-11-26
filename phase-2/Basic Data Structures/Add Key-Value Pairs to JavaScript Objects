@@ -1,0 +1,14 @@
+const foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+
+const banana='bananas';
+foods[banana]=13;
+const grape='grapes';
+foods[grape]=35;
+const strawberry='strawberries';
+foods[strawberry]=27;
+
+console.log(foods);
