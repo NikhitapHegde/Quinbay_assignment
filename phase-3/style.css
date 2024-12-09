@@ -1,8 +1,10 @@
+/* Styles for the Todo App */
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(212, 212, 229);
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -63,11 +65,12 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 12px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .todo-item:hover {
     background-color: #e9f7e7;
+    transform: scale(1.02);
 }
 
 .todo-item.completed {
@@ -113,7 +116,6 @@ button {
     background-color: #1976D2;
 }
 
-
 .status {
     display: flex;
     justify-content: space-between;  
@@ -126,6 +128,32 @@ button {
     margin: 0;
 }
 
+button#clear-completed, button#toggle-theme {
+    background-color: #FF9800;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    margin-top: 15px;
+}
+
+button#clear-completed:hover, button#toggle-theme:hover {
+    background-color: #f57c00;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .container {
+    background-color: #444;
+}
+
+.dark-mode h1 {
+    color: white;
+}
 
 .error {
     color: #f44336;
