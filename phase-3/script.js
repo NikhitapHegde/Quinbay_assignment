@@ -1,7 +1,10 @@
 document.getElementById('add-btn').addEventListener('click', addTodo);
+document.getElementById('clear-completed').addEventListener('click', clearCompleted);
+document.getElementById('toggle-theme').addEventListener('click', toggleDarkMode);
 
 let completedCount = 0;
 let totalCount = 0;
+let isDarkMode = false;
 
 function addTodo() {
     const todoInput = document.getElementById('todo-input');
@@ -32,8 +35,13 @@ function addTodo() {
     deleteBtn.addEventListener('click', deleteTodo);
     todoItem.appendChild(deleteBtn);
 
-    //Add the todo item to the list
+    //Add the todo item to the list with animation
     document.getElementById('todo-list').appendChild(todoItem);
+    todoItem.style.opacity = 0;
+    setTimeout(() => {
+        todoItem.style.transition = 'opacity 0.5s';
+        todoItem.style.opacity = 1;
+    }, 10);
 
     //Increment total tasks count
     totalCount++;
@@ -55,7 +63,8 @@ function markComplete(event) {
 
 function deleteTodo(event) {
     const todoItem = event.target.parentElement;
-    todoItem.remove();
+    todoItem.style.opacity = 0;
+    setTimeout(() => todoItem.remove(), 300); //Remove after animation
 
     //Decrement total task count
     totalCount--;
@@ -71,4 +80,21 @@ function updateTaskCounts() {
     //Update the displayed counts for completed and total tasks
     document.getElementById('completed-count').textContent = completedCount;
     document.getElementById('total-count').textContent = totalCount;
+
+    //Update progress
+    let progress = (totalCount === 0) ? 0 : Math.round((completedCount / totalCount) * 100);
+    document.getElementById('progress').textContent = progress + '%';
+}
+
+function clearCompleted() {
+    const completedItems = document.querySelectorAll('.todo-item.completed');
+    completedItems.forEach(item => item.remove());
+    totalCount -= completedItems.length;
+    completedCount = 0;
+    updateTaskCounts();
+}
+
+function toggleDarkMode() {
+    isDarkMode = !isDarkMode;
+    document.body.classList.toggle('dark-mode', isDarkMode);
 }
