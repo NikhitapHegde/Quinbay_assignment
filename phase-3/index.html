@@ -10,8 +10,15 @@
     <div class="container">
         <h1>Todo App</h1>
         
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search tasks..." />
+        </div>
+
+        <!-- Task Input Section -->
         <div class="input-container">
             <input type="text" id="todo-input" placeholder="Enter a task...">
+            <input type="date" id="due-date-input">
             <button id="add-btn">+</button>
         </div>
 
@@ -24,7 +31,6 @@
         </div>
         
         <button id="clear-completed">Clear Completed</button>
-        <button id="toggle-theme">Toggle Dark Mode</button>
     </div>
 
     <script src="script.js"></script>
